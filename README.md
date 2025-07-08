@@ -77,4 +77,4 @@ MIT
 
 ---
 
-**Made by
+**Made by Mahim Vyas
