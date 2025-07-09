@@ -42,8 +42,8 @@ const About = () => {
 	});
 
 	return (
-		<section className="about-section" ref={aboutRef}>
-			<h2 className="about-title">
+		<section className="about-section glass-panel hacking-font" ref={aboutRef}>
+			<h2 className="about-title hacking-green">
 				<span>{text}</span>
 				<Cursor />
 			</h2>
@@ -61,7 +61,7 @@ const About = () => {
 					</p>
 				</div>
 				<div className="about-skills">
-					<h3>My Skills</h3>
+					<h3 className="hacking-green">My Skills</h3>
 					<ul className="skills-list">
 						{skills.map((skill) => (
 							<li key={skill.name} className="skill-item">

@@ -1,53 +1,25 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import Sidebar from './Sidebar';
 import SettingsPopup from './SettingsPopup';
+import { ThemeContext } from '../App';
 
-const Header = (props) => {
+const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
-  const [transparent, setTransparent] = useState(true);
   const settingsBtnRef = useRef(null);
 
-  // Apply dark/light mode to body
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-mode');
-      document.body.classList.remove('light-mode');
-    } else {
-      document.body.classList.add('light-mode');
-      document.body.classList.remove('dark-mode');
-    }
-  }, [darkMode]);
+  // Use theme context
+  const { darkMode, setDarkMode, transparent, setTransparent } = useContext(ThemeContext);
 
-  // Apply/remove transparency
-  useEffect(() => {
-    if (transparent) {
-      document.documentElement.style.setProperty('--main-header-bg', '#1e1f207b');
-      document.documentElement.style.setProperty('--sidebar-bg', '#1313144d');
-      document.documentElement.style.setProperty('--settings-bg', '#222c');
-      document.documentElement.style.setProperty('--main-header-blur', 'blur(15px)');
-      document.documentElement.style.setProperty('--sidebar-blur', 'blur(25px)');
-      document.documentElement.style.setProperty('--settings-blur', 'blur(10px)');
-    } else {
-      document.documentElement.style.setProperty('--main-header-bg', '#1e1f20');
-      document.documentElement.style.setProperty('--sidebar-bg', '#131314');
-      document.documentElement.style.setProperty('--settings-bg', '#222');
-      document.documentElement.style.setProperty('--main-header-blur', 'none');
-      document.documentElement.style.setProperty('--sidebar-blur', 'none');
-      document.documentElement.style.setProperty('--settings-blur', 'none');
-    }
-  }, [transparent]);
-
-  const handleDarkMode = () => setDarkMode((prev) => !prev);
-  const handleTransparency = () => setTransparent((prev) => !prev);
+  const handleDarkMode = (val) => setDarkMode(val);
+  const handleTransparency = (val) => setTransparent(val);
 
   return (
     <>
-      <button className="sidebar-btn Sidebar-open-btn" onClick={() => setSidebarOpen(true)}>
+      <button className="Sidebar-open-btn" onClick={() => setSidebarOpen(true)}>
         <span className="material-symbols-rounded" alt="more info">double_arrow</span>
       </button>
-      <div className="main-header">
+      <div className="main-header hacking-font glass-panel">
         <div className="left-header">
           <h2>
             <img 
@@ -58,14 +30,14 @@ const Header = (props) => {
         <div className="right-header">
           <ul className="right-header-ul">
             <li className="sidebar-btn-hover-ani">
-              <button className="sidebar-btn">
+              <button className="sidebar-btn hacking-font">
                 <span className="material-symbols-rounded">home</span>
                 <h3>Home</h3>
               </button>
             </li>
             <li className="sidebar-btn-hover-ani">
               <button
-                className="sidebar-btn"
+                className="sidebar-btn hacking-font"
                 onClick={() => setSettingsOpen((open) => !open)}
                 ref={settingsBtnRef}
                 style={{ position: "relative", zIndex: 2 }}

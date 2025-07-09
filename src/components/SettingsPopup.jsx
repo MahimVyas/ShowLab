@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 
 const SettingsPopup = ({
   open,
-//   top = 600,
-//   right = 90,
   darkMode,
   transparent,
   onDarkMode,
@@ -15,8 +13,7 @@ const SettingsPopup = ({
 
   return ReactDOM.createPortal(
     <div
-      className="settings-popup-container"
-    //   style={{ top, right }}
+      className="settings-popup-container glass-panel hacking-font"
       onClick={onClose}
     >
       <div
@@ -26,18 +23,18 @@ const SettingsPopup = ({
         <label>
           <input
             type="checkbox"
-            checked={!darkMode}
-            onChange={onDarkMode}
+            checked={darkMode}
+            onChange={e => onDarkMode(e.target.checked)}
           />
-          Light Mode
+          Dark Mode
         </label>
         <label>
           <input
             type="checkbox"
-            checked={!transparent}
-            onChange={onTransparency}
+            checked={transparent}
+            onChange={e => onTransparency(e.target.checked)}
           />
-        Transparency
+          Transparency
         </label>
       </div>
     </div>,
