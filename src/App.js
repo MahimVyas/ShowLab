@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import SkillShowcase from './components/SkillShowcase';
 import HackingBackground from './components/HackingBackground';
+import About from "./components/About";
+import Tools from './components/Tools';
 
 // import { LandingAppStoreButton } from '@/components/landing/app-store-button/LandingAppStoreButton';
 
@@ -23,7 +25,7 @@ function App() {
     <HackingBackground/>
       
     <Header/>
-
+    <About />
     <div className="hero">
       <h1>Hero</h1>
       <p>
@@ -43,6 +45,7 @@ function App() {
 
     <Content />
     <SkillShowcase />
+    <Tools />
     <Footer />
 
   </div>;

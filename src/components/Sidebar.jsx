@@ -25,12 +25,20 @@ const Sidebar = ({ isOpen, onClose, user_name }) => {
           
         <a className="icons links" href="https://mahimvyas.github.io/Portfolio/"
         target="_blank" rel="noopener noreferrer">Portfolio</a>
+
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </nav>
       </div>
 
 
       <div className="external_links">
         <a href='mailto:mahimvyas205@gmail.com'
-        target="_blank" ><img aria-hidden="true" className="icons" focusable="false"
+        target="_blank" rel="noopener noreferrer"><img aria-hidden="true" className="icons" focusable="false"
           style={{ filter: 'saturate(0)' }}
           alt="Gmail Logo"
           src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_256px.png" /></a>
