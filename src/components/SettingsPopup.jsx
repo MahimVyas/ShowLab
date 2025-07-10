@@ -9,6 +9,8 @@ const SettingsPopup = ({
   onDarkMode,
   onTransparency,
   onClose,
+  onClearUserData,
+  onReplayScrapbook, // NEW
 }) => {
   const { playScrapbookFlipInAnimation } = useContext(ThemeContext);
 
@@ -52,9 +54,26 @@ const SettingsPopup = ({
             cursor: "pointer",
             boxShadow: "0 0 12px #00ff41cc"
           }}
-          onClick={playScrapbookFlipInAnimation}
+          onClick={onReplayScrapbook}
         >
           Replay Scrapbook Animation
+        </button>
+        <button
+          className="hacking-font glass-panel"
+          style={{
+            marginTop: 18,
+            background: "#ff0041",
+            color: "#fff",
+            border: "none",
+            borderRadius: 8,
+            padding: "8px 18px",
+            fontWeight: 700,
+            cursor: "pointer",
+            boxShadow: "0 0 12px #ff0041cc"
+          }}
+          onClick={onClearUserData}
+        >
+          Remove cache/cookie data
         </button>
       </div>
     </div>,

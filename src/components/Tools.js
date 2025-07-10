@@ -39,7 +39,7 @@ function ImageConverter() {
   };
 
   return (
-    <div className="glass-panel">
+    <div>
       <h4 className="hacking-font hacking-green">Image Converter</h4>
       <input type="file" accept="image/*" onChange={handleFile} />
       <select value={format} onChange={e => setFormat(e.target.value)}>

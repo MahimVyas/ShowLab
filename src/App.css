@@ -32,7 +32,7 @@ body,
 }
 
 .icons {
-  height:32px;
+  height: 32px;
   fill: #c4c7c5 !important;
   transition: fill 0.3s ease;
   background-color: #222;
@@ -722,8 +722,8 @@ body,
 }
 
 .glass-panel {
-  background: rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(7px) !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
   border-radius: 25px;
   box-shadow: 2px 8px 32px #0000008b !important;
   padding: 24px 6vw;
@@ -1224,7 +1224,7 @@ footer,
     width: 90vw;
     border-radius: 0 0 24px 24px;
     left: -100vw;
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(30px); */
   }
 
   .sidebar.open {
@@ -1255,6 +1255,7 @@ footer,
   .sidebar {
     padding: 18px 6px 8px 6px;
     border-radius: 0 0 18px 18px;
+    /* backdrop-filter: blur(30px); */
   }
 
   .main-header {
@@ -1262,8 +1263,14 @@ footer,
     top: 75%;
   }
 
-  .sidebar-open-btn {
-    scale: 0.8;
+  .Sidebar-open-btn {
+    scale: 0.9;
+    left: 0px;
+  }
+  .main-title {
+    font-size: 2.2rem;
+    margin-top: 90px;
+    margin-bottom: 12px;
   }
 }
 
@@ -1278,15 +1285,16 @@ footer,
   pointer-events: none;
   opacity: 0.85;
   background: linear-gradient(120deg,
-      #292929 0%,
-      #141414 20%,
-      #141414 35%,
-      #292929 55%,
+      #91ff0030 0%,
+      #292929 10%,
+      #101010 20%,
+      #292929 35%,
+      #0099ff30 55%,
       #0099ffa7 70%,
       #00fbffa7 80%,
-      #91ff00a7 100%);
+      #91ff006a 100%);
   background-size: 200% 200%;
-  animation: terminal-bg-move 5s 1.2s ease-in-out 2 alternate;
+  animation: terminal-bg-move 5s ease-in-out 2 alternate;
 }
 
 @keyframes terminal-bg-move {
@@ -1327,4 +1335,46 @@ footer,
   height: 100vh;
   z-index: -1;
   text-align: justify;
+}
+
+.username-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(7px);
+}
+.username-modal {
+  background: #181818;
+  color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.username-modal input {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+.username-modal button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #00ff41;
+  color: #181818;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover{
+    scale: 1.05;
+  }
 }

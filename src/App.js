@@ -24,6 +24,7 @@ function App() {
     const saved = localStorage.getItem('transparent');
     return saved === null ? true : saved === 'true';
   });
+  const [canAnimate, setCanAnimate] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle('dark-mode', darkMode);
@@ -51,14 +52,18 @@ function App() {
   }, [transparent]);
 
   useEffect(() => {
-    playScrapbookFlipInAnimation();
-  }, []);
+    // Only play animation if canAnimate is true
+    if (canAnimate) {
+      playScrapbookFlipInAnimation();
+    }
+  }, [canAnimate]);
 
   return (
     <ThemeContext.Provider value={{
       darkMode, setDarkMode,
       transparent, setTransparent,
-      playScrapbookFlipInAnimation
+      playScrapbookFlipInAnimation,
+      canAnimate, setCanAnimate
     }}>
       <div className="App hacking-font">
         <div className="terminal-animated-bg"></div>

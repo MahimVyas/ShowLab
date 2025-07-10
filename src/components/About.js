@@ -14,24 +14,27 @@ const skills = [
 
 const About = () => {
 	const aboutRef = useRef(null);
+	const canAnimate = true; // Assuming canAnimate is true for this example
 
 	useEffect(() => {
-		anime({
-			targets: aboutRef.current,
-			opacity: [0, 1],
-			translateY: [50, 0],
-			easing: 'easeOutExpo',
-			duration: 1200,
-			delay: 200,
-		});
-		anime({
-			targets: '.skill-bar-inner',
-			width: (el) => el.getAttribute('data-level') + '%',
-			easing: 'easeInOutQuad',
-			duration: 1200,
-			delay: anime.stagger(150, { start: 800 }),
-		});
-	}, []);
+		if (canAnimate) {
+			anime({
+				targets: aboutRef.current,
+				opacity: [0, 1],
+				translateY: [50, 0],
+				easing: 'easeOutExpo',
+				duration: 1200,
+				delay: 200,
+			});
+			anime({
+				targets: '.skill-bar-inner',
+				width: (el) => el.getAttribute('data-level') + '%',
+				easing: 'easeInOutQuad',
+				duration: 1200,
+				delay: anime.stagger(150, { start: 800 }),
+			});
+		}
+	}, [canAnimate]);
 
 	const [text] = useTypewriter({
 		words: ['Hi, I\'m Mahim Vyas.', 'Web Developer.', 'Tool Creator.', 'Welcome to my portfolio!'],
