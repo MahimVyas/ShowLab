@@ -13,7 +13,7 @@ body,
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
   height: 100% !important;
 }
 
@@ -85,6 +85,7 @@ body.light-mode {
   color: #ffffff;
   text-shadow: 0 0 10px #ffffffcc;
   border-radius: 30px;
+  text-align: center;
 }
 
 /* Use variables for backgrounds and blur */
@@ -97,7 +98,7 @@ body.light-mode {
   position: fixed;
   right: 15px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) !important;
   height: 300px;
   max-width: 10%;
   justify-content: space-between;
@@ -231,7 +232,7 @@ body.light-mode {
 .content {
   max-width: 900px;
   margin: 70px auto 40px auto;
-  padding: 48px 34px;
+  padding: 24px 6vw;
 }
 
 .sidebar-content {
@@ -242,6 +243,7 @@ body.light-mode {
   align-items: center;
   justify-content: space-around;
   overflow: scroll;
+
 }
 
 .sidebar-btn h3 {
@@ -273,11 +275,11 @@ body.light-mode {
   transition: all 0.5s ease-in-out !important;
 
   &:hover {
-    transform: translateX(5px);
+    transform: translateX(5px) !important;
     scale: 1.6;
-    background: #00ff400e;
+    background: #ffffff62;
     backdrop-filter: blur(3px);
-    box-shadow: 0 8px 32px #00ff4130 !important;
+    box-shadow: 0 8px 32px #000000 !important;
     animation: none;
   }
 
@@ -716,11 +718,11 @@ body.light-mode {
 }
 
 .glass-panel {
-  background: rgba(28, 28, 28, 0.3) !important;
-  backdrop-filter: blur(15px) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(7px) !important;
   border-radius: 25px;
   box-shadow: 2px 8px 32px #0000008b !important;
-  padding: 10px;
+  padding: 24px 6vw;
 }
 
 /* --- GENERAL --- */
@@ -751,7 +753,7 @@ html,
   height: 100vh;
   background: rgba(20, 30, 30, 0.92);
   backdrop-filter: blur(18px);
-  box-shadow: 2px 0 24px #00ff4130;
+  box-shadow: 2px 0 30px #000000;
   color: #c4f0c7;
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1002;
@@ -960,7 +962,7 @@ html,
   background: rgba(20, 30, 30, 0.92);
   border-radius: 28px;
   box-shadow: 0 8px 32px #00ff4130;
-  padding: 48px 34px;
+  padding: 24px 6vw;
   opacity: 0;
   transform: translateY(50px);
   transition: box-shadow 0.3s;
@@ -1241,4 +1243,66 @@ footer,
     padding: 18px 6px 8px 6px;
     border-radius: 0 0 18px 18px;
   }
+}
+
+/* --- TERMINAL ANIMATED BACKGROUND --- */
+.terminal-animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.85;
+  background: linear-gradient(120deg,
+      #292929 0%,
+      #141414 20%,
+      #141414 35%,
+      #292929 55%,
+      #ff0073 70%,
+      #bf00ff 85%,
+      #5900ff 100%);
+  background-size: 200% 200%;
+  animation: terminal-bg-move 5s ease-in 1 reverse;
+}
+
+@keyframes terminal-bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Optional: Add subtle scanlines for terminal effect */
+.terminal-scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.10) 0px,
+      rgba(0, 0, 0, 0.10) 2px,
+      transparent 2px,
+      transparent 10px);
+  mix-blend-mode: overlay;
+  opacity: 1;
+}
+
+.hacking-background-overlay {
+  opacity: 0.05;
+  font-size: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  text-align: justify;
 }

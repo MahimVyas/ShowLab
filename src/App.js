@@ -8,6 +8,7 @@ import HackingBackground from './components/HackingBackground';
 import About from "./components/About";
 import Tools from './components/Tools';
 import MainTitle from './components/MainTitle';
+import { playScrapbookFlipInAnimation } from './components/useScrapbookAnimation';
 
 // Context for theme
 export const ThemeContext = createContext();
@@ -49,20 +50,29 @@ function App() {
     localStorage.setItem('transparent', transparent);
   }, [transparent]);
 
+  useEffect(() => {
+    playScrapbookFlipInAnimation();
+  }, []);
+
   return (
     <ThemeContext.Provider value={{
       darkMode, setDarkMode,
-      transparent, setTransparent
+      transparent, setTransparent,
+      playScrapbookFlipInAnimation
     }}>
       <div className="App hacking-font">
+        <div className="terminal-animated-bg"></div>
+        <div className="terminal-scanlines"></div>
         <HackingBackground />
-        <MainTitle/>
-        <Header />
-        <About />
-        <Content />
-        <SkillShowcase />
-        <Tools />
-        <Footer />
+        <div id="scrapbook-root">
+          <MainTitle />
+          <Header />
+          <About />
+          <Content />
+          <SkillShowcase />
+          <Tools />
+          <Footer />
+        </div>
       </div>
     </ThemeContext.Provider>
   );

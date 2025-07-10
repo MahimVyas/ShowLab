@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
+import { ThemeContext } from "../App";
 
 const SettingsPopup = ({
   open,
@@ -9,6 +10,8 @@ const SettingsPopup = ({
   onTransparency,
   onClose,
 }) => {
+  const { playScrapbookFlipInAnimation } = useContext(ThemeContext);
+
   if (!open) return null;
 
   return ReactDOM.createPortal(
@@ -36,6 +39,23 @@ const SettingsPopup = ({
           />
           Transparency
         </label>
+        <button
+          className="hacking-font glass-panel"
+          style={{
+            marginTop: 18,
+            background: "#00ff41",
+            color: "#fff",
+            border: "none",
+            borderRadius: 8,
+            padding: "8px 18px",
+            fontWeight: 700,
+            cursor: "pointer",
+            boxShadow: "0 0 12px #00ff41cc"
+          }}
+          onClick={playScrapbookFlipInAnimation}
+        >
+          Replay Scrapbook Animation
+        </button>
       </div>
     </div>,
     document.getElementById("settings-portal-root")
