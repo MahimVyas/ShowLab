@@ -32,8 +32,8 @@ body,
 }
 
 .icons {
-  width: 40px;
-  fill: #c4c7c5;
+  height:32px;
+  fill: #c4c7c5 !important;
   transition: fill 0.3s ease;
   background-color: #222;
   padding: 5px;
@@ -44,7 +44,11 @@ body,
   color: #c4c7c5;
   text-decoration: none;
   transition: color 0.3s ease;
-  margin-top: 40px !important;
+  margin: 40px auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .external_links {
@@ -66,12 +70,12 @@ body,
 }
 
 /* Light/Dark mode body backgrounds */
-body.dark-mode {
+.App.dark-mode {
   background: #131314;
   color: #c4c7c5;
 }
 
-body.light-mode {
+.App.light-mode {
   background: #fff;
   color: #222;
 }
@@ -778,6 +782,7 @@ html,
   color: #00ff41;
   margin-bottom: 18px;
   letter-spacing: 0.04em;
+  text-align: center;
 }
 
 .sidebar-content h3 {
@@ -806,6 +811,7 @@ html,
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
+  text-align: center !important;
 }
 
 .sidebar-content nav a:hover {
@@ -820,15 +826,15 @@ html,
   justify-content: flex-start;
 }
 
-.icons {
+/* .icons {
   width: 100%;
-  /* height: 32px; */
+  height: 32px;
   background: #181f1f;
   border-radius: 8px;
   padding: 4px;
   align-items: center;
   transition: box-shadow 0.2s, background 0.2s;
-}
+} */
 
 .icons:hover {
   background: #00ff4130;
@@ -1206,13 +1212,19 @@ footer,
   }
 
   .main-header {
-    display: none;
+    scale: 0.7;
+    top: 75%;
+  }
+
+  .sidebar-open-btn {
+    scale: 0.8;
   }
 
   .sidebar {
     width: 90vw;
     border-radius: 0 0 24px 24px;
     left: -100vw;
+    backdrop-filter: blur(20px);
   }
 
   .sidebar.open {
@@ -1237,11 +1249,21 @@ footer,
     min-width: 120px;
     padding: 12px 6px;
     border-radius: 10px;
+    background: #222;
   }
 
   .sidebar {
     padding: 18px 6px 8px 6px;
     border-radius: 0 0 18px 18px;
+  }
+
+  .main-header {
+    scale: 0.7;
+    top: 75%;
+  }
+
+  .sidebar-open-btn {
+    scale: 0.8;
   }
 }
 
@@ -1260,11 +1282,11 @@ footer,
       #141414 20%,
       #141414 35%,
       #292929 55%,
-      #ff0073 70%,
-      #bf00ff 85%,
-      #5900ff 100%);
+      #0099ffa7 70%,
+      #00fbffa7 80%,
+      #91ff00a7 100%);
   background-size: 200% 200%;
-  animation: terminal-bg-move 5s ease-in 1 reverse;
+  animation: terminal-bg-move 5s 1.2s ease-in-out 2 alternate;
 }
 
 @keyframes terminal-bg-move {
@@ -1296,7 +1318,7 @@ footer,
 }
 
 .hacking-background-overlay {
-  opacity: 0.05;
+  opacity: 0.07;
   font-size: 100%;
   position: fixed;
   top: 0;

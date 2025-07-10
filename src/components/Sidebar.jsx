@@ -15,7 +15,7 @@ const Sidebar = ({ isOpen, onClose, user_name }) => {
           Passionate about code, hacking, and building creative tools. 
           Always learning, always shipping. 
         </p>
-        <a className="icons links" href="https://mahimvyas.github.io/Portfolio/"
+        <a className="links" href="https://mahimvyas.github.io/Portfolio/"
         target="_blank" rel="noopener noreferrer">Portfolio</a>
         <nav>
           <ul>
